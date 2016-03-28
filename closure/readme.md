@@ -1,1 +1,1 @@
-一直以来对闭包感觉是似懂非懂，这里将参考对闭包讲解比较详细的两本书，《JavaScript ninja》和《JavaScript you dont know》中的例子来试图弄清楚闭包原理和常见的应用。
+###一直以来对闭包感觉是似懂非懂，这里将参考对闭包讲解比较详细的两本书，《JavaScript ninja》和《JavaScript you dont know》中的例子来试图弄清楚闭包原理和常见的应用。
