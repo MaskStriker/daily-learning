@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>closure</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<button id="bot_1">bot1</button>
+<button id="bot_2">bot2</button>
+<script type="text/javascript" src="http://static.youku.com/v/js/jquery.min.js"></script>
+<script type="text/javascript">
+	// 以下例子来自于 JavaScript you dont know
+	// 例子1:典型的闭包
+	(function () {
+		function foo () {
+			var a = 2;
+
+			function bar () {
+				console.log( a );
+			}
+
+			return bar;
+		}
+
+		var baz = foo();
+		baz();		
+	})();
+
+
+	// 例子2：间接引用
+	(function () {
+		function foo () {
+			var a = 2;
+			function baz () {
+				console.log(a);
+			}
+			bar(baz);
+		}
+
+		function bar (fn) {
+			fn();
+		}	
+
+		foo();
+	})();
+
+
+	// 例子3：间接引用2
+	(function () {
+		var fn;
+		function foo () {
+			var a = 2;
+			function baz () {
+				console.log(a);
+			}
+			fn = baz;
+		}
+
+		function bar () {
+			fn();
+		}
+
+		foo();
+		bar();		
+	})();
+
+	//例子4：各种异步回调中的闭包
+	(function(){
+		function wait (message) {
+			setTimeout(function timer () {
+				console.log(message)
+			},1000);
+		}
+		wait("hello");
+
+		function setupBot (name,selector) {
+			$(selector).click(function activator () {
+				console.log("activating:"+name);
+			});
+		}
+		setupBot("closure bot 1","#bot_1");
+		setupBot("closure bot 2","#bot_2");
+	})();
+
+	// 例子5：循环中的闭包
+	// 得不道期望的结果
+	(function() {
+		for (var i = 0; i <= 5; i++) {
+			setTimeout(function timer () {
+				console.log(i);
+			},i*1000)
+		}
+	})();
+	// 利用闭包
+	(function() {
+		for (var i = 0; i <= 5; i++) {
+			(function () {
+				var j = i ;
+				setTimeout(function timer () {
+					console.log(j);
+				},j*1000)
+			})()
+			// 更简洁的写法
+			// (function (j) {
+			// 	setTimeout(function timer () {
+			// 		console.log(j);
+			// 	},j*1000)
+			// })(i)
+		}
+	})();
+
+	// 例子6：模块
+	// 每次调用都会形成一个新的模块即闭包
+	(function() {
+		function CoolModule () {
+			var something = "cool";
+			var another = [1,2,3];
+
+			function doSomething () {
+				something += "1";
+				console.log(something);
+			}
+
+			function doAnother () {
+				console.log(another.join("!"));
+			}
+
+			return {
+				doSomething : doSomething,
+				doAnother : doAnother
+			};
+		}
+		var foo = CoolModule();
+		var foo1 = CoolModule();
+
+		foo.doSomething();
+		foo.doSomething();
+		foo1.doSomething();
+		foo.doAnother();
+		foo1.doAnother();
+	})();
+	//传入参数，给每个模块一个标识
+	(function() {
+		function CoolModule (id) {
+			function identify (argument) {
+				// body...
+			}
+		}
+	})();
+</script>
+</body>
+</html>
