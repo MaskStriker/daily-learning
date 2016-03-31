@@ -73,19 +73,42 @@
 	<section>
 		<h2>量词</h2>
 		<ul>
-			<li>n+</li>
-			<li>n*</li>
-			<li>n?</li>
-			<li>n{X}</li>
-			<li>n{X,Y}</li>
-			<li>n{X,}</li>
-			<li>n$</li>
+			<li>n+  匹配任何包含至少一个 n 的字符串</li>
+			<li>n*  匹配任何包含零个或多个 n 的字符串</li>
+			<li>n?  匹配任何包含零个或一个 n 的字符串</li>
+			<li>n{X}  匹配包含 X 个 n 的序列的字符串</li>
+			<li>n{X,Y}  匹配包含 X 或 Y 个 n 的序列的字符串</li>
+			<li>n{X,}  匹配包含至少 X 个 n 的序列的字符串</li>
+			<li>n$  匹配任何结尾为 n 的字符串</li>
+			<li>^n  匹配任何开头为 n 的字符串</li>
+			<li>?=n  匹配任何其后紧接指定字符串 n 的字符串</li>
+			<li>?!n  匹配任何其后没有紧接指定字符串 n 的字符串</li>
 		</ul>
 	</section>
 	<section>
 		<h2>一些例子</h2>
 		<ul>
+			<li>//test方法,测试字符串,符合模式时返回true,否则返回false  </li>
+			<li>var re = /he/;//最简单的正则表达式,将匹配he这个单词</li>
+			<li>var str = "he";</li>
+			<li>alert(re.test(str));//true</li>
 			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+
 		</ul>
 	</section>
     <script type="text/javascript">

@@ -12,12 +12,42 @@
     <h1>支持正则表达式的 String 对象的方法</h1>
     <section>
     	<h2>search</h2>
+        <ul>
+            <li>search() 方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。</li>
+            <li>参数可以是需要在 stringObject 中检索的子串，也可以是需要检索的 RegExp 对象 </li>
+            <li>返回stringObject 中第一个与 regexp 相匹配的子串的起始位置。如果没有找到任何匹配的子串，则返回 -1。</li>
+            <li>
+                <p>var str="Visit W3School!" <br>
+                    document.write(str.search(/W3School/)) //  6
+                </p>
+            </li>
+        </ul>
     </section>
     <section>
     	<h2>match</h2>
+        <ul>
+            <li>match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。该方法类似 indexOf() 和 lastIndexOf()，但是它返回指定的值，而不是字符串的位置。</li>
+            <li>参数是要检索的字符串值，或要匹配的模式的RegExp对象</li>
+            <li>返回存放匹配结果的数组。该数组的内容依赖于 regexp 是否具有全局标志 g。</li>
+            <li>
+                <p>
+                    var str="1 plus 2 equal 3" <br>
+                    document.write(str.match(/\d+/g)) //1,2,3
+                </p>
+            </li>
+        </ul>
     </section>
     <section>
     	<h2>replace</h2>
+        <li>replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</li>
+        <li>第一个参数规定子字符串或要替换的模式的 RegExp 对象;第二个参数是一个字符串值，规定了替换文本或生成替换文本的函数。</li>
+        <li>返回一个新的字符串，是用 replacement 替换了 regexp 的第一次匹配或所有匹配之后得到的。</li>
+        <li>
+            <p>
+                var str="Visit Microsoft!" <br>
+                document.write(str.replace(/Microsoft/, "W3School")) //Visit W3School
+            </p>
+        </li>
     </section>
 </body>
 </html>
